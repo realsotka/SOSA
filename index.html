@@ -35,7 +35,7 @@
         } 
         h1, h2, h3, h4, .font-heading { font-family: 'Montserrat', sans-serif; }
         
-        /* Стилі прелоадера */
+        /* Прелоадер */
         #preloader {
             position: fixed;
             inset: 0;
@@ -68,7 +68,7 @@
             100% { transform: rotate(720deg); }
         }
 
-        /* Анімація для бульбашок */
+        /* Бульбашки */
         .bubble-anim { animation: float 4s ease-in-out infinite; }
         .bubble-anim-2 { animation: float 5s ease-in-out infinite reverse; }
         @keyframes float {
@@ -77,7 +77,7 @@
             100% { transform: translateY(0px) scale(1); }
         }
 
-        /* Анімація для чоловічка зі шваброю */
+        /* Клінер */
         .sweeper-wrapper {
             animation: sweep-action 10s linear infinite;
             transform-origin: center;
@@ -88,13 +88,12 @@
             25% { transform: translateX(40px) scaleX(-1); } 
             28% { transform: translateX(40px) scaleX(1); }  
             43% { transform: translateX(0px) scaleX(1); }   
-            62% { transform: translateX(0px) scaleX(1); }   /* Зупинка для привітання */
+            62% { transform: translateX(0px) scaleX(1); }   
             77% { transform: translateX(-40px) scaleX(1); } 
             80% { transform: translateX(-40px) scaleX(-1); }
             100% { transform: translateX(-40px) scaleX(-1); }
         }
 
-        /* Анімація руки, що махає */
         .wave-arm {
             transform-origin: 26px 18px;
             animation: arm-wave 10s linear infinite;
@@ -119,6 +118,11 @@
             color: white;
             border-color: #00AEEF;
         }
+
+        /* Modal Styles */
+        #order-modal { transition: all 0.3s ease-in-out; }
+        .modal-content { transform: scale(0.9); transition: all 0.3s ease-in-out; }
+        #order-modal:not(.hidden) .modal-content { transform: scale(1); }
     </style>
 </head>
 <body class="antialiased">
@@ -131,6 +135,44 @@
                     <span class="absolute bottom-0 left-0 w-1.5 h-1.5 bg-mint rounded-full"></span>
                     <span class="absolute top-0.5 left-1 w-2 h-2 border-2 border-primary rounded-full"></span>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="order-modal" class="fixed inset-0 z-[100] flex items-center justify-center hidden">
+        <div class="absolute inset-0 bg-dark/60 backdrop-blur-sm modal-overlay"></div>
+        
+        <div class="modal-content relative bg-white w-full max-w-md p-8 rounded-3xl shadow-2xl mx-4">
+            <button class="absolute top-6 right-6 text-gray-400 hover:text-dark transition-colors close-modal">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+            
+            <div id="form-container">
+                <h3 class="text-2xl font-heading font-bold text-dark mb-2">Швидке замовлення</h3>
+                <p class="text-gray-500 mb-8">Залиште контакти, і ми зв'яжемося для уточнення деталей.</p>
+                
+                <form id="lead-form" class="space-y-5">
+                    <div>
+                        <label class="block text-sm font-semibold text-dark mb-2">Ваше ім'я</label>
+                        <input type="text" required placeholder="Як до вас звертатися?" class="w-full px-5 py-3.5 bg-light border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-mint focus:border-transparent transition-all">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold text-dark mb-2">Номер телефону</label>
+                        <input type="tel" required placeholder="+38 (0__) ___-__-__" class="w-full px-5 py-3.5 bg-light border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-mint focus:border-transparent transition-all">
+                    </div>
+                    <button type="submit" class="w-full bg-primary hover:bg-blue-500 text-white font-bold py-4 rounded-xl transition-all shadow-lg shadow-primary/30 text-lg">
+                        Відправити заявку
+                    </button>
+                </form>
+            </div>
+
+            <div id="success-message" class="hidden text-center py-10">
+                <div class="w-20 h-20 bg-mint/20 rounded-full flex items-center justify-center mx-auto mb-6">
+                    <svg class="w-10 h-10 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                </div>
+                <h3 class="text-2xl font-heading font-bold text-dark mb-2">Дякуємо за довіру!</h3>
+                <p class="text-gray-500">Менеджер SODA зателефонує вам протягом 5 хвилин.</p>
+                <button class="mt-8 text-primary font-semibold close-modal">Повернутись на сайт</button>
             </div>
         </div>
     </div>
@@ -173,11 +215,11 @@
                     <a href="#services" class="text-gray-600 hover:text-primary font-medium transition-colors">Послуги</a>
                     <a href="#calculator" class="text-gray-600 hover:text-primary font-medium transition-colors">Ціни</a>
                     <a href="#about" class="text-gray-600 hover:text-primary font-medium transition-colors">Про нас</a>
-                    <a href="#contact" class="bg-primary hover:bg-blue-500 text-white px-6 py-2.5 rounded-xl font-medium transition-all shadow-lg shadow-primary/30">Замовити</a>
+                    <button class="bg-primary hover:bg-blue-500 text-white px-6 py-2.5 rounded-xl font-medium transition-all shadow-lg shadow-primary/30 open-modal-btn">Замовити</button>
                 </div>
 
                 <div class="md:hidden flex items-center">
-                    <button class="text-gray-600 hover:text-primary focus:outline-none">
+                    <button class="text-gray-600 hover:text-primary focus:outline-none open-modal-btn">
                         <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                         </svg>
@@ -202,10 +244,10 @@
                         Ми робимо ваш простір чистим, щоб ви могли витрачати час на те, що дійсно важливо.
                     </p>
                     <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                        <a href="#calculator" class="bg-primary hover:bg-blue-500 text-white font-medium py-4 px-8 rounded-xl transition-all duration-300 shadow-[0_8px_20px_rgba(0,174,239,0.3)] hover:shadow-[0_8px_25px_rgba(0,174,239,0.5)] text-lg">
+                        <button class="bg-primary hover:bg-blue-500 text-white font-medium py-4 px-8 rounded-xl transition-all duration-300 shadow-[0_8px_20px_rgba(0,174,239,0.3)] hover:shadow-[0_8px_25px_rgba(0,174,239,0.5)] text-lg open-modal-btn">
                             Розрахувати вартість
-                        </a>
-                        <a href="#services" class="bg-white border-2 border-gray-200 hover:border-primary text-dark hover:text-primary font-medium py-4 px-8 rounded-xl transition-all duration-300 text-lg">
+                        </button>
+                        <a href="#services" class="bg-white border-2 border-gray-200 hover:border-primary text-dark hover:text-primary font-medium py-4 px-8 rounded-xl transition-all duration-300 text-lg flex items-center justify-center">
                             Наші послуги
                         </a>
                     </div>
@@ -269,7 +311,7 @@
                             <li class="flex items-center gap-2"><svg class="w-5 h-5 text-mint" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Миття сантехніки</li>
                             <li class="flex items-center gap-2 text-gray-400"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg> Всередині шаф</li>
                         </ul>
-                        <a href="#calculator" class="block w-full text-center bg-light hover:bg-primary hover:text-white text-dark font-medium py-3 rounded-xl transition-colors">Обрати</a>
+                        <button class="block w-full text-center bg-light hover:bg-primary hover:text-white text-dark font-medium py-3 rounded-xl transition-colors open-modal-btn">Обрати</button>
                     </div>
 
                     <div class="bg-white rounded-3xl p-8 shadow-lg border-2 border-primary relative overflow-hidden transform md:-translate-y-4">
@@ -282,7 +324,7 @@
                             <li class="flex items-center gap-2"><svg class="w-5 h-5 text-mint" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Прибирання всередині меблів</li>
                             <li class="flex items-center gap-2"><svg class="w-5 h-5 text-mint" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Видалення складних плям</li>
                         </ul>
-                        <a href="#calculator" class="block w-full text-center bg-primary hover:bg-blue-500 text-white font-medium py-3 rounded-xl transition-colors shadow-lg shadow-primary/30">Обрати</a>
+                        <button class="block w-full text-center bg-primary hover:bg-blue-500 text-white font-medium py-3 rounded-xl transition-colors shadow-lg shadow-primary/30 open-modal-btn">Обрати</button>
                     </div>
 
                     <div class="bg-white rounded-3xl p-8 shadow-sm border border-gray-100 hover:shadow-xl transition-all duration-300 relative overflow-hidden group">
@@ -295,7 +337,7 @@
                             <li class="flex items-center gap-2"><svg class="w-5 h-5 text-mint" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Очищення плитки від фуги</li>
                             <li class="flex items-center gap-2"><svg class="w-5 h-5 text-mint" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Вивіз дрібного сміття</li>
                         </ul>
-                        <a href="#calculator" class="block w-full text-center bg-light hover:bg-primary hover:text-white text-dark font-medium py-3 rounded-xl transition-colors">Обрати</a>
+                        <button class="block w-full text-center bg-light hover:bg-primary hover:text-white text-dark font-medium py-3 rounded-xl transition-colors open-modal-btn">Обрати</button>
                     </div>
                 </div>
             </div>
@@ -354,7 +396,7 @@
                                     <div class="text-gray-400 text-sm mb-1">Орієнтовна вартість:</div>
                                     <div class="text-4xl font-heading font-bold text-mint"><span id="total-price">1000</span> грн</div>
                                 </div>
-                                <button class="w-full sm:w-auto bg-mint hover:bg-[#1DE0A3] text-dark font-bold py-4 px-8 rounded-xl transition-all shadow-[0_5px_15px_rgba(38,255,191,0.2)] hover:shadow-[0_8px_25px_rgba(38,255,191,0.4)]">
+                                <button class="w-full sm:w-auto bg-mint hover:bg-[#1DE0A3] text-dark font-bold py-4 px-8 rounded-xl transition-all shadow-[0_5px_15px_rgba(38,255,191,0.2)] hover:shadow-[0_8px_25px_rgba(38,255,191,0.4)] open-modal-btn">
                                     Замовити клінінг
                                 </button>
                             </div>
@@ -435,7 +477,49 @@
                 }, 300);
             });
 
-            // Calculator
+            // Модальне вікно (Pop-up)
+            const modal = document.getElementById('order-modal');
+            const openBtns = document.querySelectorAll('.open-modal-btn'); // Всі кнопки "Замовити" мають цей клас
+            const closeBtns = document.querySelectorAll('.close-modal');
+            const overlay = document.querySelector('.modal-overlay');
+            const form = document.getElementById('lead-form');
+            const formContainer = document.getElementById('form-container');
+            const successMsg = document.getElementById('success-message');
+
+            const openModal = () => {
+                modal.classList.remove('hidden');
+                body.style.overflow = 'hidden'; // Забороняємо скролити сайт, коли відкрито вікно
+            };
+
+            const closeModal = () => {
+                modal.classList.add('hidden');
+                body.style.overflow = 'auto';
+                
+                // Повертаємо форму в початковий стан після закриття (з невеликою затримкою)
+                setTimeout(() => {
+                    formContainer.classList.remove('hidden');
+                    successMsg.classList.add('hidden');
+                    form.reset();
+                }, 300);
+            };
+
+            // Вішаємо події на кліки
+            openBtns.forEach(btn => btn.addEventListener('click', openModal));
+            closeBtns.forEach(btn => btn.addEventListener('click', closeModal));
+            overlay.addEventListener('click', closeModal); // Закриття по кліку на темний фон
+
+            // Обробка відправки форми
+            form.addEventListener('submit', (e) => {
+                e.preventDefault(); // Зупиняємо стандартну відправку сторінки
+                // Тут в майбутньому буде код відправки в Телеграм/Таблицю
+                
+                // Ховаємо форму, показуємо успіх
+                formContainer.classList.add('hidden');
+                successMsg.classList.remove('hidden');
+            });
+
+
+            // Калькулятор
             let basePrice = 1000;
             let roomMultiplier = 1; 
             let extrasTotal = 0;
@@ -481,7 +565,7 @@
                 });
             });
             
-            // Navbar shadow
+            // Тінь для навігації при скролі
             const navbar = document.getElementById('navbar');
             window.addEventListener('scroll', () => {
                 if (window.scrollY > 20) {
