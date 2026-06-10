@@ -152,7 +152,7 @@
         details::-webkit-details-marker { display: none; }
     </style>
 </head>
-<body class="antialiased overflow-x-hidden">
+<body class="antialiased overflow-x-hidden relative">
 
     <!-- Preloader -->
     <div id="preloader">
@@ -167,6 +167,25 @@
         </div>
     </div>
 
+    <!-- PROMO BANNER (Знижка 10%) -->
+    <div id="promo-banner" class="fixed bottom-4 left-4 right-4 md:left-auto md:right-8 md:bottom-8 z-[90] bg-dark text-white p-5 rounded-2xl shadow-2xl flex flex-col sm:flex-row items-center gap-5 border border-gray-700 transform translate-y-[150%] transition-transform duration-700 cubic-bezier(0.16, 1, 0.3, 1) max-w-lg">
+        <button id="close-promo" class="absolute top-3 right-3 text-gray-400 hover:text-white transition-colors" title="Закрити">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+        </button>
+        <div class="flex-shrink-0 bg-mint/20 p-3.5 rounded-full hidden sm:block">
+            <svg class="w-8 h-8 text-mint" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"></path></svg>
+        </div>
+        <div class="text-center sm:text-left flex-1 mt-2 sm:mt-0">
+            <h4 class="font-heading font-bold text-xl mb-1 text-mint flex items-center justify-center sm:justify-start gap-2">
+                <span class="sm:hidden">🎁</span> Знижка 10%
+            </h4>
+            <p class="text-sm text-gray-300">Для всіх нових клієнтів SODA CLEANING.</p>
+        </div>
+        <button id="open-promo-btn" class="w-full sm:w-auto bg-mint hover:bg-[#1fe3a6] text-dark font-bold py-3 px-6 rounded-xl transition-colors whitespace-nowrap shadow-[0_4px_14px_rgba(38,255,191,0.3)] hover:shadow-[0_6px_20px_rgba(38,255,191,0.4)]">
+            Забронювати знижку
+        </button>
+    </div>
+
     <!-- Модальне вікно ЗАМОВЛЕННЯ -->
     <div id="order-modal" class="modal-window fixed inset-0 z-[100] flex items-center justify-center hidden">
         <div class="absolute inset-0 bg-dark/60 backdrop-blur-sm modal-overlay"></div>
@@ -175,8 +194,8 @@
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
             </button>
             <div id="form-container">
-                <h3 class="text-2xl font-heading font-bold text-dark mb-2">Швидке замовлення</h3>
-                <p class="text-gray-500 mb-8">Залиште контакти, і ми зв'яжемося для уточнення деталей.</p>
+                <h3 id="modal-main-title" class="text-2xl font-heading font-bold text-dark mb-2">Швидке замовлення</h3>
+                <p id="modal-main-desc" class="text-gray-500 mb-8">Залиште контакти, і ми зв'яжемося для уточнення деталей.</p>
                 <form id="lead-form" class="space-y-5">
                     <div>
                         <label class="block text-sm font-semibold text-dark mb-2">Ваше ім'я</label>
@@ -769,6 +788,42 @@
                 });
             }
 
+            // PROMO BANNER ЛОГІКА
+            const promoBanner = document.getElementById('promo-banner');
+            const closePromoBtn = document.getElementById('close-promo');
+            const openPromoBtn = document.getElementById('open-promo-btn');
+
+            // Показуємо банер через 3.5 секунди після завантаження сторінки
+            setTimeout(() => {
+                if(promoBanner) promoBanner.classList.remove('translate-y-[150%]');
+            }, 3500);
+
+            // Закриття банера (хрестик)
+            if(closePromoBtn) {
+                closePromoBtn.addEventListener('click', () => {
+                    promoBanner.classList.add('translate-y-[150%]');
+                });
+            }
+
+            // Клік по кнопці "Забронювати знижку"
+            if(openPromoBtn) {
+                openPromoBtn.addEventListener('click', () => {
+                    // Змінюємо текст у модальному вікні під акцію
+                    const modalTitle = document.getElementById('modal-main-title');
+                    const modalDesc = document.getElementById('modal-main-desc');
+                    const submitBtn = document.getElementById('submit-btn');
+
+                    if(modalTitle) modalTitle.innerText = "Бронювання знижки 10%";
+                    if(modalDesc) modalDesc.innerText = "Залиште номер, ми закріпимо за вами знижку та швидко прорахуємо вартість.";
+                    if(submitBtn) submitBtn.innerText = "Забронювати знижку";
+
+                    // Ховаємо сам банер і відкриваємо модалку
+                    promoBanner.classList.add('translate-y-[150%]');
+                    if(orderModal) orderModal.classList.remove('hidden');
+                    body.style.overflow = 'hidden';
+                });
+            }
+
             // Модальне вікно ЗАМОВЛЕННЯ
             const orderModal = document.getElementById('order-modal');
             const orderOpenBtns = document.querySelectorAll('.open-modal-btn');
@@ -788,6 +843,12 @@
                     if(orderSuccessMsg) orderSuccessMsg.classList.add('hidden'); 
                     if(orderForm) orderForm.reset(); 
                     if(submitBtn) { submitBtn.disabled = false; submitBtn.innerText = "Відправити заявку"; }
+                    
+                    // Повертаємо стандартні тексти модалки, якщо людина закрила акційну форму
+                    const modalTitle = document.getElementById('modal-main-title');
+                    const modalDesc = document.getElementById('modal-main-desc');
+                    if(modalTitle) modalTitle.innerText = "Швидке замовлення";
+                    if(modalDesc) modalDesc.innerText = "Залиште контакти, і ми зв'яжемося для уточнення деталей.";
                 }, 300);
             };
 
