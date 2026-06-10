@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html lang="uk" class="scroll-smooth">
 <head>
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18202332780"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'AW-18202332780');
-</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18202332780"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'AW-18202332780');
+    </script>
+    
     <meta name="google-site-verification" content="45QrAGVvuTd5yMDuoNWvWja9ihquIUO7KTC3DWFiRSo" />
     <link rel="icon" type="image/png" href="favicon.png">
     <title>SODA CLEANING | Сучасний сервіс прибирання</title>
@@ -88,7 +90,7 @@
             100% { transform: translateY(0px) scale(1); }
         }
 
-        /* Клінер */
+        /* Клінер в шапці */
         .sweeper-wrapper {
             animation: sweep-action 10s linear infinite;
             transform-origin: center;
@@ -135,153 +137,19 @@
         .star-rating label { cursor: pointer; color: #D1D5DB; font-size: 2rem; transition: color 0.2s; }
         .star-rating label:hover, .star-rating label:hover ~ label, .star-rating input:checked ~ label { color: #FBBF24; }
         .star-rating { display: flex; flex-direction: row-reverse; justify-content: flex-end; }
-        
-        /* Таби */
-        .tab-indicator { transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
 
-        /* ІНТЕРАКТИВНІ БУЛЬБАШКИ ПОСЛУГ */
-        .bubbles-container {
-            position: relative;
-            height: 550px; /* Трохи збільшив висоту для більшого простору */
-            width: 100%;
-            max-width: 900px;
-            margin: 0 auto;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .service-bubble {
-            position: absolute;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 20px;
-            cursor: pointer;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-            transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.5s ease;
-            backdrop-filter: blur(8px);
-            border: 1px solid rgba(255,255,255,0.8);
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
-            line-height: 1.2;
-        }
-
-        .service-bubble:hover {
-            transform: scale(1.08) !important; /* Плавніше збільшення при наведенні */
-            box-shadow: 0 20px 40px rgba(0,174,239,0.2);
-            z-index: 30;
-            border-color: rgba(255,255,255,1);
-            animation-play-state: paused; /* Зупиняємо плавання при наведенні */
-        }
-
-        /* Індивідуальні розміри та кольори бульбашок */
-        .bubble-1 {
-            width: 200px; height: 200px;
-            background: rgba(255, 255, 255, 0.9);
-            color: #00AEEF;
-            top: 40px; left: 15%;
-            animation: gentle-float-1 12s ease-in-out infinite;
-        }
-        .bubble-2 {
-            width: 280px; height: 280px;
-            background: linear-gradient(135deg, #00AEEF 0%, #0088cc 100%);
-            color: #ffffff;
-            top: 80px; right: 8%;
-            animation: gentle-float-2 15s ease-in-out infinite;
-            box-shadow: 0 15px 35px rgba(0,174,239,0.3);
-        }
-        .bubble-3 {
-            width: 220px; height: 220px;
-            background: rgba(47, 54, 64, 0.95);
-            color: #26FFBF;
-            bottom: 60px; left: 22%;
-            animation: gentle-float-3 14s ease-in-out infinite;
-        }
-        .bubble-4 {
-            width: 170px; height: 170px;
-            background: rgba(38, 255, 191, 0.9);
-            color: #2F3640;
-            bottom: 100px; right: 25%;
-            animation: gentle-float-4 10s ease-in-out infinite;
-        }
-
-        /* Плавні, довгі анімації "плавання" (рідинний ефект) */
-        @keyframes gentle-float-1 {
-            0% { transform: translate(0, 0) scale(1); }
-            33% { transform: translate(15px, -25px) scale(1.02); }
-            66% { transform: translate(-10px, 15px) scale(0.98); }
-            100% { transform: translate(0, 0) scale(1); }
-        }
-        @keyframes gentle-float-2 {
-            0% { transform: translate(0, 0) scale(1); }
-            33% { transform: translate(-20px, 15px) scale(0.97); }
-            66% { transform: translate(15px, -20px) scale(1.03); }
-            100% { transform: translate(0, 0) scale(1); }
-        }
-        @keyframes gentle-float-3 {
-            0% { transform: translate(0, 0) scale(1); }
-            50% { transform: translate(25px, -15px) scale(1.01); }
-            100% { transform: translate(0, 0) scale(1); }
-        }
-        @keyframes gentle-float-4 {
-            0% { transform: translate(0, 0) scale(1); }
-            50% { transform: translate(-15px, -30px) scale(1.04); }
-            100% { transform: translate(0, 0) scale(1); }
-        }
-
-        /* Мобільна версія бульбашок (сітка) */
-        @media (max-width: 768px) {
-            .bubbles-container {
-                height: auto;
-                display: grid;
-                grid-template-columns: 1fr 1fr;
-                gap: 16px;
-                padding: 10px;
-            }
-            .service-bubble {
-                position: relative;
-                top: auto !important; left: auto !important; right: auto !important; bottom: auto !important;
-                width: 100%;
-                aspect-ratio: 1/1;
-                height: auto;
-                animation: gentle-float-mobile 8s ease-in-out infinite !important; /* Легка анімація на мобільному */
-                font-size: 15px;
-                padding: 10px;
-            }
-            .bubble-2 { width: 100%; font-size: 18px; }
-            
-            /* Робимо так, щоб бульбашки на мобільному "дихали" в різнобій */
-            .bubble-1 { animation-delay: 0s !important; }
-            .bubble-2 { animation-delay: -2s !important; }
-            .bubble-3 { animation-delay: -4s !important; }
-            .bubble-4 { animation-delay: -6s !important; }
-        }
-        
-        @keyframes gentle-float-mobile {
-            0% { transform: translateY(0); }
-            50% { transform: translateY(-8px); }
-            100% { transform: translateY(0); }
-        }
-
-        /* Анімація появи карток (більш плавна) */
-        .card-enter {
-            animation: card-reveal 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-        }
-        @keyframes card-reveal {
-            0% { transform: translateY(30px) scale(0.95); opacity: 0; }
-            100% { transform: translateY(0) scale(1); opacity: 1; }
-        }
-        
+        /* Плавна поява сторінки послуги */
         .fade-in {
-            animation: simple-fade 0.4s ease-out forwards;
+            animation: fadeIn 0.4s ease-out forwards;
         }
-        @keyframes simple-fade {
-            from { opacity: 0; }
-            to { opacity: 1; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
         }
+
+        /* FAQ Акордеон плавна анімація */
+        details > summary { list-style: none; }
+        details::-webkit-details-marker { display: none; }
     </style>
 </head>
 <body class="antialiased overflow-x-hidden">
@@ -381,8 +249,10 @@
     <nav class="bg-white/90 backdrop-blur-md shadow-sm fixed w-full z-50 top-0 transition-all duration-300" id="navbar">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
+                
+                <!-- Logo & Sweeper -->
                 <div class="flex items-center gap-6 lg:gap-12">
-                    <div class="flex-shrink-0 flex items-center cursor-pointer" onclick="window.scrollTo(0,0)">
+                    <div class="flex-shrink-0 flex items-center cursor-pointer" onclick="goHome()">
                         <div class="text-2xl md:text-3xl font-heading font-extrabold tracking-tighter text-dark flex items-center">
                             SODA
                             <div class="relative mx-2 w-6 h-6 shrink-0">
@@ -407,351 +277,479 @@
                         </div>
                     </div>
                 </div>
-                <div class="hidden md:flex space-x-8 items-center justify-end">
-                    <a href="#services" class="text-gray-600 hover:text-primary font-medium transition-colors">Послуги</a>
-                    <a href="#reviews" class="text-gray-600 hover:text-primary font-medium transition-colors">Відгуки</a>
-                    <button class="bg-primary hover:bg-blue-500 text-white px-6 py-2.5 rounded-xl font-medium transition-all shadow-lg shadow-primary/30 open-modal-btn">Замовити</button>
+
+                <!-- Right Menu -->
+                <div class="hidden lg:flex items-center">
+                    <div class="flex space-x-6 mr-8">
+                        <a href="#" onclick="goHomeAndScroll('services-stripe'); return false;" class="text-gray-600 hover:text-primary font-medium transition-colors">Послуги</a>
+                        <a href="#" onclick="goHomeAndScroll('faq'); return false;" class="text-gray-600 hover:text-primary font-medium transition-colors">Питання</a>
+                        <a href="#" onclick="goHomeAndScroll('reviews'); return false;" class="text-gray-600 hover:text-primary font-medium transition-colors">Відгуки</a>
+                    </div>
+                    
+                    <!-- Messengers -->
+                    <div class="flex items-center gap-3 border-l border-gray-200 pl-6">
+                        <!-- Telegram -->
+                        <a href="https://t.me/+380631894825" target="_blank" class="w-10 h-10 bg-[#27A7E7]/10 hover:bg-[#27A7E7] text-[#27A7E7] hover:text-white rounded-full flex items-center justify-center transition-all duration-300 shadow-sm" title="Написати в Telegram">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .24z"/></svg>
+                        </a>
+                        <!-- Оригінальний Viber -->
+                        <a href="viber://chat?number=%2B380631894825" class="w-10 h-10 bg-[#7360F2]/10 hover:bg-[#7360F2] text-[#7360F2] hover:text-white rounded-full flex items-center justify-center transition-all duration-300 shadow-sm" title="Написати у Viber">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M21.49 10.3c0-5.41-4.88-9.8-10.9-9.8-6.03 0-10.9 4.39-10.9 9.8 0 2.5 1.03 4.79 2.76 6.55l-1.6 4.67 5.14-1.53c1.08.28 2.24.44 3.42.44 6.02 0 10.9-4.39 10.9-9.8.01-.11.01-.22.01-.33zm-3.57 1.5c-.32.99-1.71 1.72-2.56 1.8-.74.07-1.7-.19-3.75-.98-2.4-1-3.96-3.21-4.08-3.38-.12-.17-.98-1.25-.98-2.38s.61-1.69.84-1.94c.22-.25.48-.31.65-.31.16 0 .33 0 .46.01.15.01.34-.06.53.38.2.46.67 1.57.73 1.68.06.11.1.25.02.42-.08.17-.12.27-.25.42-.12.14-.26.31-.37.44-.12.13-.26.26-.11.51.15.24.65 1.04 1.7 1.9 1.36 1.11 2.17 1.45 2.42 1.58.26.13.41.1.56-.05.15-.16.65-.73.83-.98.18-.25.35-.21.58-.13.23.08 1.47.66 1.72.79.25.13.42.19.48.29.07.1.07.61-.26 1.6z"/></svg>
+                        </a>
+                    </div>
                 </div>
-                <div class="md:hidden flex items-center">
-                    <button class="text-gray-600 focus:outline-none open-modal-btn">
-                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" /></svg>
-                    </button>
+
+                <!-- Mobile Menu Button -->
+                <div class="lg:hidden flex items-center gap-4">
+                    <a href="https://t.me/+380631894825" class="text-[#27A7E7]"><svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .24z"/></svg></a>
+                    <!-- Оригінальний Viber Mobile -->
+                    <a href="viber://chat?number=%2B380631894825" class="text-[#7360F2]"><svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24"><path d="M21.49 10.3c0-5.41-4.88-9.8-10.9-9.8-6.03 0-10.9 4.39-10.9 9.8 0 2.5 1.03 4.79 2.76 6.55l-1.6 4.67 5.14-1.53c1.08.28 2.24.44 3.42.44 6.02 0 10.9-4.39 10.9-9.8.01-.11.01-.22.01-.33zm-3.57 1.5c-.32.99-1.71 1.72-2.56 1.8-.74.07-1.7-.19-3.75-.98-2.4-1-3.96-3.21-4.08-3.38-.12-.17-.98-1.25-.98-2.38s.61-1.69.84-1.94c.22-.25.48-.31.65-.31.16 0 .33 0 .46.01.15.01.34-.06.53.38.2.46.67 1.57.73 1.68.06.11.1.25.02.42-.08.17-.12.27-.25.42-.12.14-.26.31-.37.44-.12.13-.26.26-.11.51.15.24.65 1.04 1.7 1.9 1.36 1.11 2.17 1.45 2.42 1.58.26.13.41.1.56-.05.15-.16.65-.73.83-.98.18-.25.35-.21.58-.13.23.08 1.47.66 1.72.79.25.13.42.19.48.29.07.1.07.61-.26 1.6z"/></svg></a>
                 </div>
             </div>
         </div>
     </nav>
 
     <main id="main-content">
-        <!-- Hero Section -->
-        <section class="hero-bg pt-32 pb-20 lg:pt-48 lg:pb-32 relative overflow-hidden">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                <div class="text-center max-w-4xl mx-auto">
-                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-mint/20 text-dark font-medium text-sm mb-6">
-                        <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span> Київ
-                    </div>
-                    <h1 class="text-4xl md:text-6xl lg:text-7xl font-heading font-extrabold text-dark mb-6 leading-tight">
-                        Сучасний сервіс <br /> <span class="text-primary relative inline-block">прибирання<span class="absolute -bottom-2 left-0 w-full h-3 bg-mint/40 -z-10 rounded-sm"></span></span>
-                    </h1>
-                    <p class="text-lg md:text-xl text-gray-600 mb-10 leading-relaxed max-w-2xl mx-auto">
-                        Ми робимо ваш простір чистим, щоб ви могли витрачати час на те, що дійсно важливо.
-                    </p>
-                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                        <button class="bg-primary hover:bg-blue-500 text-white font-medium py-4 px-8 rounded-xl transition-all duration-300 shadow-[0_8px_20px_rgba(0,174,239,0.3)] hover:shadow-[0_8px_25px_rgba(0,174,239,0.5)] text-lg open-modal-btn">
-                            Отримати консультацію
-                        </button>
-                        <a href="#services" class="bg-white border-2 border-gray-200 hover:border-primary text-dark hover:text-primary font-medium py-4 px-8 rounded-xl transition-all duration-300 text-lg flex items-center justify-center">
-                            Наші послуги
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <!-- Декор -->
-            <div class="absolute top-1/4 left-10 w-24 h-24 border-4 border-mint/30 rounded-full bubble-anim z-0"></div>
-            <div class="absolute top-2/3 left-20 w-12 h-12 bg-primary/10 rounded-full bubble-anim-2 z-0" style="animation-delay: 1s;"></div>
-            <div class="absolute bottom-1/4 right-20 w-36 h-36 bg-primary/5 rounded-full bubble-anim-2 z-0"></div>
-        </section>
-
-        <!-- Advantages -->
-        <section class="py-20 bg-white">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
-                    <div class="text-center group p-6">
-                        <div class="w-20 h-20 mx-auto bg-light rounded-2xl flex items-center justify-center mb-6 group-hover:-translate-y-2 transition-transform duration-300">
-                            <svg class="w-10 h-10 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+        
+        <!-- ГОЛОВНА СТОРІНКА (HOME VIEW) -->
+        <div id="view-home" class="block">
+            
+            <!-- Hero Section -->
+            <section class="hero-bg pt-32 pb-24 lg:pt-40 lg:pb-32 relative overflow-hidden">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                    <div class="text-center max-w-4xl mx-auto">
+                        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-mint/20 text-dark font-medium text-sm mb-6">
+                            <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span> Київ
                         </div>
-                        <h3 class="text-xl font-bold font-heading mb-3">Швидкість</h3>
-                        <p class="text-gray-500">Приїдемо у зручний для вас час. Можливий терміновий виїзд в день замовлення.</p>
-                    </div>
-                    <div class="text-center group p-6">
-                        <div class="w-20 h-20 mx-auto bg-light rounded-2xl flex items-center justify-center mb-6 group-hover:-translate-y-2 transition-transform duration-300">
-                            <svg class="w-10 h-10 text-mint" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path></svg>
-                        </div>
-                        <h3 class="text-xl font-bold font-heading mb-3">Еко-засоби</h3>
-                        <p class="text-gray-500">Використовуємо лише безпечну хімію. Ніякої алергії, безпечно для дітей та тварин.</p>
-                    </div>
-                    <div class="text-center group p-6">
-                        <div class="w-20 h-20 mx-auto bg-light rounded-2xl flex items-center justify-center mb-6 group-hover:-translate-y-2 transition-transform duration-300">
-                            <svg class="w-10 h-10 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
-                        </div>
-                        <h3 class="text-xl font-bold font-heading mb-3">Довіра</h3>
-                        <p class="text-gray-500">Перевірені клінери. Ми несемо матеріальну відповідальність за ваше майно.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Services -->
-        <section id="services" class="py-20 bg-light min-h-[850px] relative overflow-hidden">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center mb-12 relative z-20">
-                    <h2 class="text-4xl font-heading font-bold text-dark mb-6">Послуги</h2>
-                    
-                    <!-- Перемикач Дім/Бізнес -->
-                    <div class="inline-flex bg-gray-200 rounded-full p-1 relative shadow-inner">
-                        <div id="tab-indicator" class="absolute top-1 bottom-1 left-1 w-[calc(50%-4px)] bg-primary rounded-full tab-indicator shadow-sm"></div>
-                        <button id="tab-home" class="relative z-10 w-32 py-2 text-white font-bold rounded-full transition-colors focus:outline-none" onclick="switchTab('home')">Дім</button>
-                        <button id="tab-business" class="relative z-10 w-32 py-2 text-gray-500 hover:text-dark font-bold rounded-full transition-colors focus:outline-none" onclick="switchTab('business')">Бізнес</button>
-                    </div>
-                </div>
-
-                <!-- Контент для ДОМУ -->
-                <div id="content-home" class="transition-opacity duration-300">
-                    
-                    <!-- Сцена з бульбашками -->
-                    <div id="bubbles-view" class="bubbles-container fade-in">
-                        <!-- Бульбашка 1 -->
-                        <div class="service-bubble bubble-1 text-xl sm:text-2xl" onclick="showCard('card-support')">
-                            Підтримуюче<br>прибирання
-                        </div>
-                        <!-- Бульбашка 2 -->
-                        <div class="service-bubble bubble-2 text-2xl sm:text-3xl" onclick="showCard('card-general')">
-                            Генеральне<br>прибирання
-                        </div>
-                        <!-- Бульбашка 3 -->
-                        <div class="service-bubble bubble-3 text-xl sm:text-2xl" onclick="showCard('card-renovation')">
-                            Після<br>ремонту
-                        </div>
-                        <!-- Бульбашка 4 -->
-                        <div class="service-bubble bubble-4 text-lg sm:text-xl" onclick="showCard('card-windows')">
-                            Миття<br>вікон
-                        </div>
-                    </div>
-
-                    <!-- Контейнер для розгорнутих карток -->
-                    <div id="cards-view" class="hidden max-w-3xl mx-auto relative z-20">
-                        <button onclick="showBubbles()" class="mb-6 text-gray-500 hover:text-primary font-bold flex items-center gap-2 transition-colors">
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
-                            Назад до послуг
-                        </button>
-
-                        <!-- Картка: Підтримуюче -->
-                        <div id="card-support" class="hidden service-card bg-white rounded-3xl p-8 sm:p-12 shadow-xl border border-gray-100 flex flex-col">
-                            <h3 class="text-3xl font-bold font-heading mb-3 text-dark">Підтримуюче прибирання</h3>
-                            <p class="text-primary font-bold text-xl mb-8">Ціна від 1500 грн</p>
-                            
-                            <ul class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8 text-gray-600 font-medium">
-                                <li class="flex items-center gap-3"><svg class="w-6 h-6 text-mint shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg> пилосос</li>
-                                <li class="flex items-center gap-3"><svg class="w-6 h-6 text-mint shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg> миття підлоги</li>
-                                <li class="flex items-center gap-3"><svg class="w-6 h-6 text-mint shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg> витирання пилу</li>
-                                <li class="flex items-center gap-3"><svg class="w-6 h-6 text-mint shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg> очищення поверхонь</li>
-                                <li class="flex items-center gap-3"><svg class="w-6 h-6 text-mint shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg> миття дзеркал</li>
-                                <li class="flex items-center gap-3"><svg class="w-6 h-6 text-mint shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg> винесення сміття</li>
-                            </ul>
-                            <div class="bg-light p-6 rounded-2xl mb-8">
-                                <p class="text-gray-600 leading-relaxed m-0">
-                                    Якщо Вам потрібно швидко прибрати в квартирі - цей варіант для Вас!<br>Ми протремо розетки, підвіконня, лампи, приберем робочі поверхні. Також пропилососим, вимиєм підлогу та винесем сміття.
-                                </p>
-                            </div>
-                            <button class="block w-full text-center bg-primary hover:bg-blue-500 text-white font-bold py-4 rounded-xl transition-colors shadow-lg shadow-primary/30 open-modal-btn">Замовити прибирання</button>
-                        </div>
-
-                        <!-- Картка: Генеральне -->
-                        <div id="card-general" class="hidden service-card bg-white rounded-3xl p-8 sm:p-12 shadow-xl border border-primary relative flex flex-col overflow-hidden">
-                            <div class="absolute top-6 right-6 bg-primary text-white text-sm font-bold px-4 py-1.5 rounded-full shadow-md">Популярне</div>
-                            <h3 class="text-3xl font-bold font-heading mb-3 text-dark pr-24">Генеральне прибирання</h3>
-                            <p class="text-primary font-bold text-xl mb-8">Ціна : від 50-170 грн за м²</p>
-                            
-                            <ul class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8 text-gray-600 font-medium">
-                                <li class="flex items-start gap-3"><svg class="w-6 h-6 text-primary shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg> глибоке очищення поверхонь</li>
-                                <li class="flex items-start gap-3"><svg class="w-6 h-6 text-primary shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg> очищення важкодоступних місць</li>
-                                <li class="flex items-start gap-3"><svg class="w-6 h-6 text-primary shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg> миття всіх вікон</li>
-                                <li class="flex items-start gap-3"><svg class="w-6 h-6 text-primary shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg> прибирання всіх шаф і шафок зсередини</li>
-                                <li class="flex items-start gap-3 sm:col-span-2"><svg class="w-6 h-6 text-primary shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg> видалення нальотів, грибка</li>
-                            </ul>
-                            <div class="bg-blue-50 p-6 rounded-2xl mb-8">
-                                <p class="text-gray-700 leading-relaxed m-0">
-                                    Хочеться абсолютної чистоти в кожному куточку свого дому ? Так-так, ми це зробимо! Наш бригадир прорахує вартість, врахує всі ваші побажання, а клінери зроблять свою роботу.
-                                </p>
-                            </div>
-                            <button class="block w-full text-center bg-dark hover:bg-gray-800 text-white font-bold py-4 rounded-xl transition-colors shadow-lg open-modal-btn">Замовити генеральне</button>
-                        </div>
-
-                        <!-- Картка: Після ремонту -->
-                        <div id="card-renovation" class="hidden service-card bg-white rounded-3xl p-8 sm:p-12 shadow-xl border border-gray-100 flex flex-col">
-                            <h3 class="text-3xl font-bold font-heading mb-3 text-dark">Після ремонту</h3>
-                            <p class="text-primary font-bold text-xl mb-8">Ціна : від 50-200 грн за м²</p>
-                            
-                            <ul class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8 text-gray-600 font-medium">
-                                <li class="flex items-center gap-3"><svg class="w-6 h-6 text-dark shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg> очищення від будівельного пилу</li>
-                                <li class="flex items-center gap-3"><svg class="w-6 h-6 text-dark shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg> миття всіх поверхонь</li>
-                                <li class="flex items-center gap-3"><svg class="w-6 h-6 text-dark shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg> миття підлоги</li>
-                                <li class="flex items-center gap-3"><svg class="w-6 h-6 text-dark shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg> винесення сміття</li>
-                            </ul>
-                            <div class="bg-gray-100 p-6 rounded-2xl mb-8">
-                                <p class="text-gray-700 leading-relaxed m-0">
-                                    Ми видалимо сліди клею, сліди від будівельних сумішей, відчистим скляні та інші поверхні, тобто зробимо все, щоб вам залишилось тільки переїхати в чисте та свіже приміщення. Наш бригадир приїде на об'єкт врахує всі ваші побажання, прорахує вартість послуг і погодить дату прибирання.
-                                </p>
-                            </div>
-                            <button class="block w-full text-center bg-primary hover:bg-blue-500 text-white font-bold py-4 rounded-xl transition-colors shadow-lg shadow-primary/30 open-modal-btn">Замовити після ремонту</button>
-                        </div>
-
-                        <!-- Картка: Миття вікон -->
-                        <div id="card-windows" class="hidden service-card bg-white rounded-3xl p-8 sm:p-12 shadow-xl border border-gray-100 flex flex-col">
-                            <h3 class="text-3xl font-bold font-heading mb-8 text-dark">Миття вікон</h3>
-                            
-                            <ul class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8 text-gray-600 font-medium">
-                                <li class="flex items-center gap-3"><svg class="w-6 h-6 text-primary shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg> миття вікон стандартних</li>
-                                <li class="flex items-center gap-3"><svg class="w-6 h-6 text-primary shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg> панорамні вікна</li>
-                                <li class="flex items-center gap-3"><svg class="w-6 h-6 text-primary shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg> вікна після ремонту</li>
-                                <li class="flex items-center gap-3"><svg class="w-6 h-6 text-primary shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg> балконний блок</li>
-                            </ul>
-                            <div class="bg-light p-6 rounded-2xl mb-8">
-                                <p class="text-gray-600 leading-relaxed m-0">
-                                    Так, миття вікон може бути як окрема послуга. Ціна залежить від типу вікна та об'єму роботи. Залиште заявку на сайті і наш спеціаліст з Вами зв'яжеться.
-                                </p>
-                            </div>
-                            <button class="block w-full text-center bg-dark hover:bg-gray-800 text-white font-bold py-4 rounded-xl transition-colors shadow-lg open-modal-btn">Отримати прорахунок</button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Контент для БІЗНЕСУ -->
-                <div id="content-business" class="hidden transition-opacity duration-300 relative z-20">
-                    <div class="bg-dark rounded-3xl p-10 md:p-16 shadow-2xl relative overflow-hidden max-w-4xl mx-auto text-center border-t-4 border-mint">
-                        <!-- Декоративні елементи -->
-                        <div class="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-3xl"></div>
-                        <div class="absolute bottom-0 left-0 w-64 h-64 bg-mint/10 rounded-full blur-3xl"></div>
-                        
-                        <div class="relative z-10">
-                            <h3 class="text-3xl md:text-5xl font-heading font-extrabold text-white mb-6 leading-tight">
-                                Можемо навести чистоту в будь-яких приміщеннях!
-                            </h3>
-                            
-                            <p class="text-xl md:text-2xl text-mint font-bold mb-10 tracking-wide uppercase">
-                                Магазини, Ресторани та кафе, Готелі, Спортзали.
-                            </p>
-                            
-                            <p class="text-gray-300 text-lg md:text-xl leading-relaxed mb-12 max-w-2xl mx-auto">
-                                Ми цінуємо Ваш час, тому попередньо домовимось про зустріч, бригадир врахує всі побажання, складе прозорий кошторис, узгодимо дату, терміни прибирання та виконаємо свою роботу.
-                            </p>
-                            
-                            <button class="bg-primary hover:bg-blue-500 text-white font-bold py-5 px-12 rounded-xl transition-all shadow-[0_8px_20px_rgba(0,174,239,0.3)] hover:shadow-[0_8px_25px_rgba(0,174,239,0.5)] text-lg open-modal-btn">
-                                Запросити бригадира на об'єкт
+                        <h1 class="text-4xl md:text-6xl lg:text-7xl font-heading font-extrabold text-dark mb-6 leading-tight">
+                            Сучасний сервіс <br /> <span class="text-primary relative inline-block">прибирання<span class="absolute -bottom-2 left-0 w-full h-3 bg-mint/40 -z-10 rounded-sm"></span></span>
+                        </h1>
+                        <p class="text-lg md:text-xl text-gray-600 mb-10 leading-relaxed max-w-2xl mx-auto">
+                            Ми робимо ваш простір чистим, щоб ви могли витрачати час на те, що дійсно важливо.
+                        </p>
+                        <div class="flex justify-center mt-4">
+                            <button class="bg-primary hover:bg-blue-500 text-white font-bold py-5 px-12 rounded-2xl transition-all duration-300 shadow-[0_8px_20px_rgba(0,174,239,0.3)] hover:shadow-[0_8px_25px_rgba(0,174,239,0.5)] text-lg md:text-xl w-full sm:w-auto open-modal-btn">
+                                Замовити прибирання
                             </button>
                         </div>
                     </div>
                 </div>
+                <!-- Декор -->
+                <div class="absolute top-1/4 left-10 w-24 h-24 border-4 border-mint/30 rounded-full bubble-anim z-0"></div>
+                <div class="absolute top-2/3 left-20 w-12 h-12 bg-primary/10 rounded-full bubble-anim-2 z-0" style="animation-delay: 1s;"></div>
+                <div class="absolute bottom-1/4 right-20 w-36 h-36 bg-primary/5 rounded-full bubble-anim-2 z-0"></div>
+            </section>
 
-            </div>
-        </section>
-
-        <!-- Відгуки -->
-        <section id="reviews" class="py-20 bg-white">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center mb-16">
-                    <h2 class="text-4xl font-heading font-bold text-dark mb-4">Що кажуть клієнти</h2>
-                    <p class="text-gray-500 text-lg">Понад 500 чистих квартир та задоволених клієнтів у Києві</p>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <!-- Відгук 1 (Реальний) -->
-                    <div class="bg-light rounded-3xl p-8 relative shadow-sm hover:shadow-md transition-shadow">
-                        <div class="absolute top-6 right-6 text-mint/20">
-                            <svg class="w-12 h-12" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
-                        </div>
-                        <div class="flex gap-1 mb-4 text-yellow-400">
-                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                        </div>
-                        <p class="text-gray-600 mb-6 italic relative z-10">"Мій чоловік в захваті від вашої команди! Він ще не бачив такої чистоти! Ще раз дуже-дуже дякую! Ви зробили велику роботу. Красиво, чисто, затишно. Я не думала, що так можливо прибрати домівку! 🥰"</p>
-                        <div>
-                            <div class="font-bold text-dark text-lg">Олена</div>
-                            <div class="text-sm text-primary font-medium">Клієнт SODA</div>
-                        </div>
-                    </div>
-
-                    <!-- Відгук 2 -->
-                    <div class="bg-light rounded-3xl p-8 relative shadow-sm hover:shadow-md transition-shadow">
-                        <div class="absolute top-6 right-6 text-mint/20">
-                            <svg class="w-12 h-12" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
-                        </div>
-                        <div class="flex gap-1 mb-4 text-yellow-400">
-                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                        </div>
-                        <p class="text-gray-600 mb-6 italic relative z-10">"Майстри своєї справи. Викликав після ремонту — пил був всюди. За день хлопці та дівчата зробили квартиру ідеальною. Жодного залишку фарби на вікнах."</p>
-                        <div>
-                            <div class="font-bold text-dark text-lg">Максим</div>
-                            <div class="text-sm text-primary font-medium">Після ремонту</div>
-                        </div>
-                    </div>
-
-                    <!-- Відгук 3 -->
-                    <div class="bg-light rounded-3xl p-8 relative shadow-sm hover:shadow-md transition-shadow">
-                        <div class="absolute top-6 right-6 text-mint/20">
-                            <svg class="w-12 h-12" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
-                        </div>
-                        <div class="flex gap-1 mb-4 text-yellow-400">
-                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                        </div>
-                        <p class="text-gray-600 mb-6 italic relative z-10">"Регулярно замовляю підтримуюче прибирання. Зручно, що можна залишити ключі і піти у своїх справах, а ввечері повернутися у свіжу та чисту квартиру."</p>
-                        <div>
-                            <div class="font-bold text-dark text-lg">Вікторія</div>
-                            <div class="text-sm text-primary font-medium">Підтримуюче прибирання</div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Кнопка "Залишити відгук" -->
-                <div class="mt-12 text-center">
-                    <button class="bg-white border-2 border-primary text-primary hover:bg-primary hover:text-white font-bold py-3 px-10 rounded-xl transition-all open-review-modal">
-                        Залишити свій відгук
+            <!-- ПАНЕЛЬ ПОСЛУГ (СТРІЧКА) -->
+            <div id="services-stripe" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 -mt-12 lg:-mt-16 mb-8">
+                <div class="bg-white/95 backdrop-blur-xl rounded-3xl shadow-[0_8px_30px_rgba(0,0,0,0.08)] border border-gray-100 p-2 md:p-3 grid grid-cols-2 md:grid-cols-5 gap-2 md:gap-3">
+                    <button onclick="openServicePage('general')" class="py-4 md:py-5 px-2 text-center text-sm md:text-base font-bold text-gray-600 bg-gray-50 hover:bg-primary hover:text-white hover:shadow-lg hover:shadow-primary/30 rounded-2xl transition-all duration-300 flex flex-col items-center justify-center gap-1">
+                        Генеральне прибирання
+                    </button>
+                    <button onclick="openServicePage('support')" class="py-4 md:py-5 px-2 text-center text-sm md:text-base font-bold text-gray-600 bg-gray-50 hover:bg-primary hover:text-white hover:shadow-lg hover:shadow-primary/30 rounded-2xl transition-all duration-300 flex flex-col items-center justify-center gap-1">
+                        Підтримуюче прибирання
+                    </button>
+                    <button onclick="openServicePage('renovation')" class="py-4 md:py-5 px-2 text-center text-sm md:text-base font-bold text-gray-600 bg-gray-50 hover:bg-primary hover:text-white hover:shadow-lg hover:shadow-primary/30 rounded-2xl transition-all duration-300 flex flex-col items-center justify-center gap-1">
+                        Після ремонту
+                    </button>
+                    <button onclick="openServicePage('windows')" class="py-4 md:py-5 px-2 text-center text-sm md:text-base font-bold text-gray-600 bg-gray-50 hover:bg-primary hover:text-white hover:shadow-lg hover:shadow-primary/30 rounded-2xl transition-all duration-300 flex flex-col items-center justify-center gap-1">
+                        Миття вікон
+                    </button>
+                    <button onclick="openServicePage('business')" class="col-span-2 md:col-span-1 py-4 md:py-5 px-2 text-center text-sm md:text-base font-bold text-dark bg-mint hover:bg-[#1DE0A3] hover:shadow-lg hover:shadow-mint/40 rounded-2xl transition-all duration-300 flex items-center justify-center gap-2">
+                        Для бізнесу
                     </button>
                 </div>
             </div>
-        </section>
 
-        <!-- Footer -->
-        <footer id="contact" class="bg-white border-t border-gray-100 pt-16 pb-8">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
-                    <div class="col-span-1 md:col-span-2">
-                        <div class="text-2xl font-heading font-extrabold tracking-tighter text-dark flex items-center mb-4">
-                            SODA
-                            <div class="relative mx-1.5 w-5 h-5 shrink-0">
-                                <span class="absolute bottom-0 left-0 w-1.5 h-1.5 bg-mint rounded-full bubble-anim"></span>
-                                <span class="absolute top-1 left-1 w-2.5 h-2.5 border-2 border-primary rounded-full bubble-anim-2"></span>
+            <!-- Переваги -->
+            <section class="py-12 lg:py-20 bg-white">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                        <div class="text-center group p-6">
+                            <div class="w-20 h-20 mx-auto bg-light rounded-2xl flex items-center justify-center mb-6 group-hover:-translate-y-2 transition-transform duration-300">
+                                <svg class="w-10 h-10 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                             </div>
-                            CLEANING
+                            <h3 class="text-xl font-bold font-heading mb-3">Швидкість</h3>
+                            <p class="text-gray-500">Приїдемо у зручний для вас час. Можливий терміновий виїзд в день замовлення.</p>
                         </div>
-                        <p class="text-gray-500 mb-6 max-w-sm">
-                            Сучасний сервіс прибирання. Ми робимо ваш простір чистим, щоб ви могли витрачати час на те, що дійсно важливо.
-                        </p>
+                        <div class="text-center group p-6">
+                            <div class="w-20 h-20 mx-auto bg-light rounded-2xl flex items-center justify-center mb-6 group-hover:-translate-y-2 transition-transform duration-300">
+                                <svg class="w-10 h-10 text-mint" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path></svg>
+                            </div>
+                            <h3 class="text-xl font-bold font-heading mb-3">Еко-засоби</h3>
+                            <p class="text-gray-500">Використовуємо лише безпечну хімію. Ніякої алергії, безпечно для дітей та тварин.</p>
+                        </div>
+                        <div class="text-center group p-6">
+                            <div class="w-20 h-20 mx-auto bg-light rounded-2xl flex items-center justify-center mb-6 group-hover:-translate-y-2 transition-transform duration-300">
+                                <svg class="w-10 h-10 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                            </div>
+                            <h3 class="text-xl font-bold font-heading mb-3">Довіра</h3>
+                            <p class="text-gray-500">Перевірені клінери. Ми несемо матеріальну відповідальність за ваше майно.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- FAQ Секція -->
+            <section id="faq" class="py-20 bg-light border-t border-gray-100">
+                <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center mb-12">
+                        <h2 class="text-4xl font-heading font-bold text-dark mb-4">Популярні запитання</h2>
+                        <p class="text-gray-500 text-lg">Відповідаємо на те, що найчастіше цікавить наших клієнтів</p>
                     </div>
                     
-                    <div>
-                        <h4 class="font-bold text-dark mb-4">Контакти</h4>
-                        <ul class="space-y-3 text-gray-500">
-                            <li><a href="tel:+380631894825" class="hover:text-primary transition-colors">+38 (063) 189-48-25</a></li>
-                            <li><a href="mailto:hello@soda.com.ua" class="hover:text-primary transition-colors">hello@soda.com.ua</a></li>
-                            <li>м. Київ, вул. Західна, 10А</li>
-                        </ul>
+                    <div class="space-y-4">
+                        <!-- Питання 1 -->
+                        <details class="group bg-white rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden">
+                            <summary class="flex items-center justify-between cursor-pointer p-6 font-bold text-lg text-dark select-none">
+                                <span>Скільки часу займає прибирання?</span>
+                                <span class="text-primary transition-transform duration-300 group-open:-rotate-180">
+                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                                </span>
+                            </summary>
+                            <div class="px-6 pb-6 pt-0 text-gray-600 leading-relaxed border-t border-gray-50 mt-2 pt-4">
+                                Час залежить від площі приміщення та типу послуги. Підтримуюче прибирання зазвичай займає 3-5 годин. Генеральне або після ремонту може тривати 6-10 годин. На об'єкт виїжджає бригада з кількох людей, щоб зробити все максимально швидко.
+                            </div>
+                        </details>
+
+                        <!-- Питання 2 -->
+                        <details class="group bg-white rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden">
+                            <summary class="flex items-center justify-between cursor-pointer p-6 font-bold text-lg text-dark select-none">
+                                <span>Чи потрібно мені бути вдома під час прибирання?</span>
+                                <span class="text-primary transition-transform duration-300 group-open:-rotate-180">
+                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                                </span>
+                            </summary>
+                            <div class="px-6 pb-6 pt-0 text-gray-600 leading-relaxed border-t border-gray-50 mt-2 pt-4">
+                                Ні, це не обов'язково. Багато наших клієнтів залишають ключі бригадиру вранці і йдуть у своїх справах, а ввечері просто приймають ідеально чисту квартиру. Ми цінуємо ваш час і несемо матеріальну відповідальність за майно.
+                            </div>
+                        </details>
+
+                        <!-- Питання 3 -->
+                        <details class="group bg-white rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden">
+                            <summary class="flex items-center justify-between cursor-pointer p-6 font-bold text-lg text-dark select-none">
+                                <span>Чи привозите ви свій інвентар та миючі засоби?</span>
+                                <span class="text-primary transition-transform duration-300 group-open:-rotate-180">
+                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                                </span>
+                            </summary>
+                            <div class="px-6 pb-6 pt-0 text-gray-600 leading-relaxed border-t border-gray-50 mt-2 pt-4">
+                                Так, ми повністю автономні. Наша бригада приїжджає з усім необхідним: від професійних пилососів (Kärcher) та пароочисників до драбин і спеціальних серветок. Вам не потрібно нічого купувати чи готувати.
+                            </div>
+                        </details>
+
+                        <!-- Питання 4 -->
+                        <details class="group bg-white rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden">
+                            <summary class="flex items-center justify-between cursor-pointer p-6 font-bold text-lg text-dark select-none">
+                                <span>Наскільки безпечна хімія, яку ви використовуєте?</span>
+                                <span class="text-primary transition-transform duration-300 group-open:-rotate-180">
+                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                                </span>
+                            </summary>
+                            <div class="px-6 pb-6 pt-0 text-gray-600 leading-relaxed border-t border-gray-50 mt-2 pt-4">
+                                Ми використовуємо виключно сертифіковані професійні еко-засоби європейського виробництва. Вони гіпоалергенні, не мають різкого хімічного запаху та абсолютно безпечні для дітей і домашніх тварин (Pet & Baby friendly).
+                            </div>
+                        </details>
+
+                        <!-- Питання 5 -->
+                        <details class="group bg-white rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden">
+                            <summary class="flex items-center justify-between cursor-pointer p-6 font-bold text-lg text-dark select-none">
+                                <span>Як розраховується фінальна вартість?</span>
+                                <span class="text-primary transition-transform duration-300 group-open:-rotate-180">
+                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                                </span>
+                            </summary>
+                            <div class="px-6 pb-6 pt-0 text-gray-600 leading-relaxed border-t border-gray-50 mt-2 pt-4">
+                                Ціна залежить від квадратури, типу прибирання та ступеня забруднення (особливо після ремонту). Точну фіксовану вартість називає наш менеджер під час безкоштовної консультації по телефону або після оцінки об'єкта по фото/відео в месенджері.
+                            </div>
+                        </details>
+                        
+                        <!-- Питання 6 -->
+                        <details class="group bg-white rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden">
+                            <summary class="flex items-center justify-between cursor-pointer p-6 font-bold text-lg text-dark select-none">
+                                <span>Чи можу я замовити прибирання "на сьогодні"?</span>
+                                <span class="text-primary transition-transform duration-300 group-open:-rotate-180">
+                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                                </span>
+                            </summary>
+                            <div class="px-6 pb-6 pt-0 text-gray-600 leading-relaxed border-t border-gray-50 mt-2 pt-4">
+                                Так, ми завжди намагаємося йти назустріч клієнтам. Якщо у нас є вільні бригади, можливий терміновий виїзд в день замовлення без додаткових переплат. Найкраще зателефонувати нам для уточнення графіку.
+                            </div>
+                        </details>
+
+                        <!-- Питання 7 -->
+                        <details class="group bg-white rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden">
+                            <summary class="flex items-center justify-between cursor-pointer p-6 font-bold text-lg text-dark select-none">
+                                <span>Що робити, якщо мені не сподобався результат?</span>
+                                <span class="text-primary transition-transform duration-300 group-open:-rotate-180">
+                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                                </span>
+                            </summary>
+                            <div class="px-6 pb-6 pt-0 text-gray-600 leading-relaxed border-t border-gray-50 mt-2 pt-4">
+                                Оплата здійснюється тільки після того, як ви особисто перевірите і приймете роботу. Якщо ви знайдете недоліки, клінери миттєво усунуть їх на місці. Ваша задоволеність — наш головний пріоритет.
+                            </div>
+                        </details>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Відгуки -->
+            <section id="reviews" class="py-20 bg-white border-t border-gray-200">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center mb-16">
+                        <h2 class="text-4xl font-heading font-bold text-dark mb-4">Що кажуть клієнти</h2>
+                        <p class="text-gray-500 text-lg">Понад 500 чистих квартир та задоволених власників у Києві</p>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <!-- Відгук 1 -->
+                        <div class="bg-light rounded-3xl p-8 relative shadow-sm hover:shadow-md transition-shadow">
+                            <div class="absolute top-6 right-6 text-mint/20">
+                                <svg class="w-12 h-12" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
+                            </div>
+                            <div class="flex gap-1 mb-4 text-yellow-400">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            </div>
+                            <p class="text-gray-600 mb-6 italic relative z-10">"Мій чоловік в захваті від вашої команди! Він ще не бачив такої чистоти! Ще раз дуже-дуже дякую! Ви зробили велику роботу. Красиво, чисто, затишно. Я не думала, що так можливо прибрати домівку! 🥰"</p>
+                            <div>
+                                <div class="font-bold text-dark text-lg">Олена</div>
+                                <div class="text-sm text-primary font-medium">Клієнт SODA</div>
+                            </div>
+                        </div>
+
+                        <!-- Відгук 2 -->
+                        <div class="bg-light rounded-3xl p-8 relative shadow-sm hover:shadow-md transition-shadow">
+                            <div class="absolute top-6 right-6 text-mint/20">
+                                <svg class="w-12 h-12" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
+                            </div>
+                            <div class="flex gap-1 mb-4 text-yellow-400">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            </div>
+                            <p class="text-gray-600 mb-6 italic relative z-10">"Майстри своєї справи. Викликав після ремонту — пил був всюди. За день хлопці та дівчата зробили квартиру ідеальною. Жодного залишку фарби на вікнах."</p>
+                            <div>
+                                <div class="font-bold text-dark text-lg">Максим</div>
+                                <div class="text-sm text-primary font-medium">Після ремонту</div>
+                            </div>
+                        </div>
+
+                        <!-- Відгук 3 -->
+                        <div class="bg-light rounded-3xl p-8 relative shadow-sm hover:shadow-md transition-shadow">
+                            <div class="absolute top-6 right-6 text-mint/20">
+                                <svg class="w-12 h-12" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
+                            </div>
+                            <div class="flex gap-1 mb-4 text-yellow-400">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            </div>
+                            <p class="text-gray-600 mb-6 italic relative z-10">"Регулярно замовляю підтримуюче прибирання. Зручно, що можна залишити ключі і піти у своїх справах, а ввечері повернутися у свіжу та чисту квартиру."</p>
+                            <div>
+                                <div class="font-bold text-dark text-lg">Вікторія</div>
+                                <div class="text-sm text-primary font-medium">Підтримуюче прибирання</div>
+                            </div>
+                        </div>
                     </div>
 
-                    <div>
-                        <h4 class="font-bold text-dark mb-4">Графік роботи</h4>
-                        <ul class="space-y-3 text-gray-500">
-                            <li>Пн-Пт: 08:00 - 20:00</li>
-                            <li>Сб-Нд: 09:00 - 18:00</li>
-                            <li><span class="text-mint font-medium">Без вихідних</span></li>
-                        </ul>
+                    <!-- Модальне вікно ВІДГУКУ (Кнопка) -->
+                    <div class="mt-12 text-center">
+                        <button class="bg-white border-2 border-primary text-primary hover:bg-primary hover:text-white font-bold py-3 px-10 rounded-xl transition-all open-review-modal">
+                            Залишити свій відгук
+                        </button>
                     </div>
                 </div>
-                <div class="border-t border-gray-100 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-                    <p class="text-sm text-gray-400">© 2026 SODA Cleaning. Всі права захищені.</p>
+            </section>
+        </div>
+
+        <!-- ОКРЕМІ СТОРІНКИ ПОСЛУГ (SERVICE VIEW) -->
+        <div id="view-service" class="hidden pt-32 pb-20 bg-light min-h-screen">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <!-- Кнопка "Назад" -->
+                <button onclick="goHome()" class="flex items-center gap-2 text-gray-500 hover:text-primary font-bold mb-8 transition-colors">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+                    Повернутись на головну
+                </button>
+
+                <!-- Сторінка: Генеральне -->
+                <div id="sp-general" class="service-page-content hidden">
+                    <div class="bg-white rounded-3xl p-8 md:p-12 shadow-xl border border-gray-100">
+                        <div class="inline-block bg-primary/10 text-primary font-bold px-4 py-1.5 rounded-full mb-6 text-sm">Хіт замовлень</div>
+                        <h2 class="text-4xl md:text-5xl font-bold font-heading mb-4 text-dark">Генеральне прибирання</h2>
+                        <p class="text-primary font-bold text-2xl mb-8">від 50-170 грн за м²</p>
+                        
+                        <p class="text-gray-600 text-lg leading-relaxed mb-8">
+                            Хочеться абсолютної чистоти в кожному куточку свого дому? Наша команда забезпечить ідеальний результат. Ми вимиємо всі важкодоступні місця, знежиримо кухню та видалимо наліт у ванній.
+                        </p>
+
+                        <div class="bg-gray-50 p-6 rounded-2xl mb-8">
+                            <h4 class="font-bold text-dark text-lg mb-4">Що входить у вартість:</h4>
+                            <ul class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-gray-600 font-medium">
+                                <li class="flex items-start gap-3"><svg class="w-6 h-6 text-primary shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Глибоке очищення всіх поверхонь</li>
+                                <li class="flex items-start gap-3"><svg class="w-6 h-6 text-primary shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Очищення важкодоступних місць</li>
+                                <li class="flex items-start gap-3"><svg class="w-6 h-6 text-primary shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Миття всіх вікон та дзеркал</li>
+                                <li class="flex items-start gap-3"><svg class="w-6 h-6 text-primary shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Прибирання шаф зсередини</li>
+                                <li class="flex items-start gap-3"><svg class="w-6 h-6 text-primary shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Видалення стійких нальотів і жиру</li>
+                                <li class="flex items-start gap-3"><svg class="w-6 h-6 text-primary shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Дезінфекція сантехніки</li>
+                            </ul>
+                        </div>
+                        
+                        <button class="w-full text-center bg-primary hover:bg-blue-500 text-white font-bold py-5 rounded-xl transition-colors shadow-lg text-lg open-modal-btn">Отримати розрахунок ціни</button>
+                    </div>
+                </div>
+
+                <!-- Сторінка: Підтримуюче -->
+                <div id="sp-support" class="service-page-content hidden">
+                    <div class="bg-white rounded-3xl p-8 md:p-12 shadow-xl border border-gray-100">
+                        <h2 class="text-4xl md:text-5xl font-bold font-heading mb-4 text-dark">Підтримуюче прибирання</h2>
+                        <p class="text-primary font-bold text-2xl mb-8">від 1500 грн</p>
+                        
+                        <p class="text-gray-600 text-lg leading-relaxed mb-8">
+                            Ідеальний варіант для тих, кому потрібно швидко освіжити квартиру. Ми наведемо лад, протремо пил, пропилососимо та вимиємо підлогу, щоб ви повернулися в чистий та затишний дім.
+                        </p>
+
+                        <div class="bg-gray-50 p-6 rounded-2xl mb-8">
+                            <h4 class="font-bold text-dark text-lg mb-4">Що входить у вартість:</h4>
+                            <ul class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-gray-600 font-medium">
+                                <li class="flex items-center gap-3"><svg class="w-6 h-6 text-mint shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Пилосос усіх кімнат</li>
+                                <li class="flex items-center gap-3"><svg class="w-6 h-6 text-mint shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Вологе миття підлоги</li>
+                                <li class="flex items-center gap-3"><svg class="w-6 h-6 text-mint shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Витирання пилу з меблів</li>
+                                <li class="flex items-center gap-3"><svg class="w-6 h-6 text-mint shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Очищення робочих поверхонь</li>
+                                <li class="flex items-center gap-3"><svg class="w-6 h-6 text-mint shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Миття дзеркал</li>
+                                <li class="flex items-center gap-3"><svg class="w-6 h-6 text-mint shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Винесення сміття</li>
+                            </ul>
+                        </div>
+                        
+                        <button class="w-full text-center bg-primary hover:bg-blue-500 text-white font-bold py-5 rounded-xl transition-colors shadow-lg text-lg open-modal-btn">Замовити прибирання</button>
+                    </div>
+                </div>
+
+                <!-- Сторінка: Після ремонту -->
+                <div id="sp-renovation" class="service-page-content hidden">
+                    <div class="bg-white rounded-3xl p-8 md:p-12 shadow-xl border border-gray-100">
+                        <h2 class="text-4xl md:text-5xl font-bold font-heading mb-4 text-dark">Після ремонту</h2>
+                        <p class="text-primary font-bold text-2xl mb-8">від 50-200 грн за м²</p>
+                        
+                        <p class="text-gray-600 text-lg leading-relaxed mb-8">
+                            Ремонт закінчився, але пил залишився всюди? Наша бригада зі спеціальним потужним обладнанням видалить будівельний пил, залишки фарби та клею. Вам залишиться тільки переїхати.
+                        </p>
+
+                        <div class="bg-gray-50 p-6 rounded-2xl mb-8">
+                            <h4 class="font-bold text-dark text-lg mb-4">Що входить у вартість:</h4>
+                            <ul class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-gray-600 font-medium">
+                                <li class="flex items-center gap-3"><svg class="w-6 h-6 text-dark shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Знепилення стін та стель</li>
+                                <li class="flex items-center gap-3"><svg class="w-6 h-6 text-dark shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Видалення слідів фарби/клею</li>
+                                <li class="flex items-center gap-3"><svg class="w-6 h-6 text-dark shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Миття всіх вікон та рам</li>
+                                <li class="flex items-center gap-3"><svg class="w-6 h-6 text-dark shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Миття підлоги роторною машиною</li>
+                                <li class="flex items-center gap-3"><svg class="w-6 h-6 text-dark shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Чистка сантехніки від нальоту</li>
+                                <li class="flex items-center gap-3"><svg class="w-6 h-6 text-dark shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Винесення дрібного сміття</li>
+                            </ul>
+                        </div>
+                        
+                        <button class="w-full text-center bg-primary hover:bg-blue-500 text-white font-bold py-5 rounded-xl transition-colors shadow-lg text-lg open-modal-btn">Замовити після ремонту</button>
+                    </div>
+                </div>
+
+                <!-- Сторінка: Миття вікон -->
+                <div id="sp-windows" class="service-page-content hidden">
+                    <div class="bg-white rounded-3xl p-8 md:p-12 shadow-xl border border-gray-100">
+                        <h2 class="text-4xl md:text-5xl font-bold font-heading mb-8 text-dark">Миття вікон</h2>
+                        
+                        <p class="text-gray-600 text-lg leading-relaxed mb-8">
+                            Ідеально чисте скло без розводів. Миття вікон може бути як окремою послугою, так і частиною генерального прибирання. Ми миємо скло, рами, підвіконня та відливи.
+                        </p>
+
+                        <div class="bg-blue-50 p-6 rounded-2xl mb-8">
+                            <h4 class="font-bold text-dark text-lg mb-4">Працюємо з будь-якими вікнами:</h4>
+                            <ul class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-gray-600 font-medium">
+                                <li class="flex items-center gap-3"><svg class="w-6 h-6 text-primary shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Стандартні вікна</li>
+                                <li class="flex items-center gap-3"><svg class="w-6 h-6 text-primary shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Панорамне скління</li>
+                                <li class="flex items-center gap-3"><svg class="w-6 h-6 text-primary shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Вікна після ремонту (плівка, фарба)</li>
+                                <li class="flex items-center gap-3"><svg class="w-6 h-6 text-primary shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Балконні блоки та лоджії</li>
+                            </ul>
+                        </div>
+                        
+                        <button class="w-full text-center bg-dark hover:bg-gray-800 text-white font-bold py-5 rounded-xl transition-colors shadow-lg text-lg open-modal-btn">Отримати розрахунок ціни</button>
+                    </div>
+                </div>
+
+                <!-- Сторінка: Для бізнесу -->
+                <div id="sp-business" class="service-page-content hidden">
+                    <div class="bg-dark rounded-3xl p-8 md:p-16 shadow-2xl border-t-4 border-mint relative overflow-hidden text-center">
+                        <div class="absolute top-0 right-0 w-64 h-64 bg-primary/20 rounded-full blur-3xl pointer-events-none"></div>
+                        <div class="absolute bottom-0 left-0 w-64 h-64 bg-mint/10 rounded-full blur-3xl pointer-events-none"></div>
+                        
+                        <h2 class="text-4xl md:text-6xl font-bold font-heading mb-6 text-white relative z-10">Прибирання для бізнесу</h2>
+                        <p class="text-mint font-bold text-2xl mb-10 relative z-10 uppercase tracking-wide">Магазини • Ресторани • Офіси • Спортзали</p>
+                        
+                        <p class="text-gray-300 text-xl leading-relaxed mb-12 relative z-10 max-w-2xl mx-auto">
+                            Ми цінуємо Ваш час, тому попередньо домовимось про зустріч. Наш бригадир приїде на об'єкт, врахує всі побажання, складе прозорий кошторис і ми узгодимо зручний графік роботи (навіть вночі).
+                        </p>
+                        
+                        <div class="relative z-10 max-w-md mx-auto">
+                            <button class="w-full bg-primary hover:bg-blue-500 text-white font-bold py-5 rounded-xl transition-colors shadow-[0_8px_20px_rgba(0,174,239,0.3)] hover:shadow-[0_8px_25px_rgba(0,174,239,0.5)] text-lg open-modal-btn">Запросити бригадира на об'єкт</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer id="contact" class="bg-white border-t border-gray-100 pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+                <div class="col-span-1 md:col-span-2">
+                    <div class="text-2xl font-heading font-extrabold tracking-tighter text-dark flex items-center mb-4">
+                        SODA
+                        <div class="relative mx-1.5 w-5 h-5 shrink-0">
+                            <span class="absolute bottom-0 left-0 w-1.5 h-1.5 bg-mint rounded-full bubble-anim"></span>
+                            <span class="absolute top-1 left-1 w-2.5 h-2.5 border-2 border-primary rounded-full bubble-anim-2"></span>
+                        </div>
+                        CLEANING
+                    </div>
+                    <p class="text-gray-500 mb-6 max-w-sm">
+                        Сучасний сервіс прибирання. Ми робимо ваш простір чистим, щоб ви могли витрачати час на те, що дійсно важливо.
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold text-dark mb-4">Контакти</h4>
+                    <ul class="space-y-3 text-gray-500">
+                        <li><a href="tel:+380631894825" class="hover:text-primary transition-colors font-medium">+38 (063) 189-48-25</a></li>
+                        <li class="flex gap-3 my-2">
+                            <a href="https://t.me/+380631894825" class="text-[#27A7E7] hover:opacity-70" title="Telegram"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .24z"/></svg></a>
+                            <!-- Оригінальний Viber Footer -->
+                            <a href="viber://chat?number=%2B380631894825" class="text-[#7360F2] hover:opacity-70" title="Viber"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M21.49 10.3c0-5.41-4.88-9.8-10.9-9.8-6.03 0-10.9 4.39-10.9 9.8 0 2.5 1.03 4.79 2.76 6.55l-1.6 4.67 5.14-1.53c1.08.28 2.24.44 3.42.44 6.02 0 10.9-4.39 10.9-9.8.01-.11.01-.22.01-.33zm-3.57 1.5c-.32.99-1.71 1.72-2.56 1.8-.74.07-1.7-.19-3.75-.98-2.4-1-3.96-3.21-4.08-3.38-.12-.17-.98-1.25-.98-2.38s.61-1.69.84-1.94c.22-.25.48-.31.65-.31.16 0 .33 0 .46.01.15.01.34-.06.53.38.2.46.67 1.57.73 1.68.06.11.1.25.02.42-.08.17-.12.27-.25.42-.12.14-.26.31-.37.44-.12.13-.26.26-.11.51.15.24.65 1.04 1.7 1.9 1.36 1.11 2.17 1.45 2.42 1.58.26.13.41.1.56-.05.15-.16.65-.73.83-.98.18-.25.35-.21.58-.13.23.08 1.47.66 1.72.79.25.13.42.19.48.29.07.1.07.61-.26 1.6z"/></svg></a>
+                        </li>
+                        <li><a href="mailto:hello@soda.com.ua" class="hover:text-primary transition-colors">hello@soda.com.ua</a></li>
+                        <li>м. Київ та передмістя (до 30 км)</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-dark mb-4">Графік роботи</h4>
+                    <ul class="space-y-3 text-gray-500">
+                        <li>Пн-Пт: 08:00 - 20:00</li>
+                        <li>Сб-Нд: 09:00 - 18:00</li>
+                        <li><span class="text-mint font-medium text-sm px-2 py-1 bg-dark rounded-md">Працюємо без вихідних</span></li>
+                    </ul>
                 </div>
             </div>
-        </footer>
-    </main>
+            <div class="border-t border-gray-100 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-sm text-gray-400">© 2026 SODA Cleaning. Всі права захищені.</p>
+            </div>
+        </div>
+    </footer>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
@@ -759,13 +757,17 @@
             const preloader = document.getElementById('preloader');
             const circle = document.getElementById('preloader-circle');
             const body = document.body;
-            circle.classList.add('rotate-animation');
-            circle.addEventListener('animationend', () => {
-                setTimeout(() => {
-                    preloader.style.opacity = '0';
-                    setTimeout(() => { preloader.style.display = 'none'; body.style.overflow = 'auto'; }, 600);
-                }, 300);
-            });
+            if(circle) {
+                circle.classList.add('rotate-animation');
+                circle.addEventListener('animationend', () => {
+                    setTimeout(() => {
+                        if(preloader) {
+                            preloader.style.opacity = '0';
+                            setTimeout(() => { preloader.style.display = 'none'; body.style.overflow = 'auto'; }, 600);
+                        }
+                    }, 300);
+                });
+            }
 
             // Модальне вікно ЗАМОВЛЕННЯ
             const orderModal = document.getElementById('order-modal');
@@ -777,45 +779,56 @@
             const orderSuccessMsg = document.getElementById('success-message');
             const submitBtn = document.getElementById('submit-btn');
 
-            const openOrderModal = () => { orderModal.classList.remove('hidden'); body.style.overflow = 'hidden'; };
+            const openOrderModal = () => { if(orderModal) orderModal.classList.remove('hidden'); body.style.overflow = 'hidden'; };
             const closeOrderModal = () => {
-                orderModal.classList.add('hidden');
+                if(orderModal) orderModal.classList.add('hidden');
                 body.style.overflow = 'auto';
-                setTimeout(() => { orderFormContainer.classList.remove('hidden'); orderSuccessMsg.classList.add('hidden'); orderForm.reset(); submitBtn.disabled = false; submitBtn.innerText = "Відправити заявку"; }, 300);
+                setTimeout(() => { 
+                    if(orderFormContainer) orderFormContainer.classList.remove('hidden'); 
+                    if(orderSuccessMsg) orderSuccessMsg.classList.add('hidden'); 
+                    if(orderForm) orderForm.reset(); 
+                    if(submitBtn) { submitBtn.disabled = false; submitBtn.innerText = "Відправити заявку"; }
+                }, 300);
             };
 
-            orderOpenBtns.forEach(btn => btn.addEventListener('click', openOrderModal));
-            orderCloseBtns.forEach(btn => btn.addEventListener('click', closeOrderModal));
-            orderOverlay.addEventListener('click', closeOrderModal);
+            if(orderOpenBtns) orderOpenBtns.forEach(btn => btn.addEventListener('click', openOrderModal));
+            if(orderCloseBtns) orderCloseBtns.forEach(btn => btn.addEventListener('click', closeOrderModal));
+            if(orderOverlay) orderOverlay.addEventListener('click', closeOrderModal);
 
-            orderForm.addEventListener('submit', (e) => {
-                e.preventDefault();
-                submitBtn.disabled = true;
-                submitBtn.innerText = "Відправка...";
+            if(orderForm) {
+                orderForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    if(submitBtn) {
+                        submitBtn.disabled = true;
+                        submitBtn.innerText = "Відправка...";
+                    }
 
-                const nameValue = document.getElementById('form-name').value;
-                const phoneValue = document.getElementById('form-phone').value;
+                    const nameInput = document.getElementById('form-name');
+                    const phoneInput = document.getElementById('form-phone');
+                    const nameValue = nameInput ? nameInput.value : '';
+                    const phoneValue = phoneInput ? phoneInput.value : '';
 
-                const googleFormUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSdqFq2_rfZLl2pJPM9XFWuwRsSzUvfTx1sWh5u794IynMQmZg/formResponse';
-                const formData = new URLSearchParams();
-                formData.append('entry.1658913786', nameValue);
-                formData.append('entry.132678891', phoneValue);
+                    const googleFormUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSdqFq2_rfZLl2pJPM9XFWuwRsSzUvfTx1sWh5u794IynMQmZg/formResponse';
+                    const formData = new URLSearchParams();
+                    formData.append('entry.1658913786', nameValue);
+                    formData.append('entry.132678891', phoneValue);
 
-                fetch(googleFormUrl, {
-                    method: 'POST',
-                    mode: 'no-cors',
-                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                    body: formData
-                })
-                .then(() => {
-                    orderFormContainer.classList.add('hidden');
-                    orderSuccessMsg.classList.remove('hidden');
-                })
-                .catch(() => {
-                    orderFormContainer.classList.add('hidden');
-                    orderSuccessMsg.classList.remove('hidden');
+                    fetch(googleFormUrl, {
+                        method: 'POST',
+                        mode: 'no-cors',
+                        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                        body: formData
+                    })
+                    .then(() => {
+                        if(orderFormContainer) orderFormContainer.classList.add('hidden');
+                        if(orderSuccessMsg) orderSuccessMsg.classList.remove('hidden');
+                    })
+                    .catch(() => {
+                        if(orderFormContainer) orderFormContainer.classList.add('hidden');
+                        if(orderSuccessMsg) orderSuccessMsg.classList.remove('hidden');
+                    });
                 });
-            });
+            }
 
             // Модальне вікно ВІДГУКУ
             const reviewModal = document.getElementById('review-modal');
@@ -827,152 +840,91 @@
             const reviewSuccessMsg = document.getElementById('review-success-message');
             const submitReviewBtn = document.getElementById('submit-review-btn');
 
-            const openReviewModal = () => { reviewModal.classList.remove('hidden'); body.style.overflow = 'hidden'; };
+            const openReviewModal = () => { if(reviewModal) reviewModal.classList.remove('hidden'); body.style.overflow = 'hidden'; };
             const closeReviewModal = () => {
-                reviewModal.classList.add('hidden');
+                if(reviewModal) reviewModal.classList.add('hidden');
                 body.style.overflow = 'auto';
-                setTimeout(() => { reviewFormContainer.classList.remove('hidden'); reviewSuccessMsg.classList.add('hidden'); reviewForm.reset(); submitReviewBtn.disabled = false; submitReviewBtn.innerText = "Відправити відгук"; }, 300);
+                setTimeout(() => { 
+                    if(reviewFormContainer) reviewFormContainer.classList.remove('hidden'); 
+                    if(reviewSuccessMsg) reviewSuccessMsg.classList.add('hidden'); 
+                    if(reviewForm) reviewForm.reset(); 
+                    if(submitReviewBtn) { submitReviewBtn.disabled = false; submitReviewBtn.innerText = "Відправити відгук"; }
+                }, 300);
             };
 
-            reviewOpenBtns.forEach(btn => btn.addEventListener('click', openReviewModal));
-            reviewCloseBtns.forEach(btn => btn.addEventListener('click', closeReviewModal));
-            reviewOverlay.addEventListener('click', closeReviewModal);
+            if(reviewOpenBtns) reviewOpenBtns.forEach(btn => btn.addEventListener('click', openReviewModal));
+            if(reviewCloseBtns) reviewCloseBtns.forEach(btn => btn.addEventListener('click', closeReviewModal));
+            if(reviewOverlay) reviewOverlay.addEventListener('click', closeReviewModal);
 
-            reviewForm.addEventListener('submit', (e) => {
-                e.preventDefault();
-                submitReviewBtn.disabled = true;
-                submitReviewBtn.innerText = "Відправка...";
-                setTimeout(() => {
-                    reviewFormContainer.classList.add('hidden');
-                    reviewSuccessMsg.classList.remove('hidden');
-                }, 800);
-            });
+            if(reviewForm) {
+                reviewForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    if(submitReviewBtn) {
+                        submitReviewBtn.disabled = true;
+                        submitReviewBtn.innerText = "Відправка...";
+                    }
+                    setTimeout(() => {
+                        if(reviewFormContainer) reviewFormContainer.classList.add('hidden');
+                        if(reviewSuccessMsg) reviewSuccessMsg.classList.remove('hidden');
+                    }, 800);
+                });
+            }
 
             // Навігація при скролі
             const navbar = document.getElementById('navbar');
-            window.addEventListener('scroll', () => {
-                if (window.scrollY > 20) navbar.classList.add('shadow-md');
-                else navbar.classList.remove('shadow-md');
-            });
+            if(navbar) {
+                window.addEventListener('scroll', () => {
+                    if (window.scrollY > 20) navbar.classList.add('shadow-md');
+                    else navbar.classList.remove('shadow-md');
+                });
+            }
         });
 
-        // Логіка для перемикача Дім/Бізнес
-        function switchTab(tabName) {
-            const tabHome = document.getElementById('tab-home');
-            const tabBusiness = document.getElementById('tab-business');
-            const tabIndicator = document.getElementById('tab-indicator');
-            const contentHome = document.getElementById('content-home');
-            const contentBusiness = document.getElementById('content-business');
-            const bubblesView = document.getElementById('bubbles-view');
-            const cardsView = document.getElementById('cards-view');
-
-            if (tabName === 'home') {
-                tabIndicator.style.transform = 'translateX(0)';
-                
-                tabHome.classList.add('text-white');
-                tabHome.classList.remove('text-gray-500');
-                
-                tabBusiness.classList.remove('text-white');
-                tabBusiness.classList.add('text-gray-500');
-
-                contentBusiness.classList.add('hidden');
-                contentHome.classList.remove('hidden');
-                
-                // Коли повертаємось на Дім, завжди показуємо бульбашки
-                cardsView.classList.add('hidden');
-                bubblesView.classList.add('fade-in');
-                
-                if (window.innerWidth <= 768) {
-                    bubblesView.style.display = 'grid';
-                } else {
-                    bubblesView.style.display = 'flex';
-                }
-                
-                setTimeout(() => { 
-                    contentHome.style.opacity = '1'; 
-                }, 10);
-
-            } else if (tabName === 'business') {
-                tabIndicator.style.transform = 'translateX(100%)';
-                
-                tabBusiness.classList.add('text-white');
-                tabBusiness.classList.remove('text-gray-500');
-                
-                tabHome.classList.remove('text-white');
-                tabHome.classList.add('text-gray-500');
-
-                contentHome.classList.add('hidden');
-                contentBusiness.classList.remove('hidden');
-                
-                contentHome.style.opacity = '0';
-                setTimeout(() => { contentBusiness.style.opacity = '1'; }, 10);
-            }
-        }
-
-        // ЛОГІКА ДЛЯ БУЛЬБАШОК ТА КАРТОК ПОСЛУГ
-        function showCard(cardId) {
-            const bubblesView = document.getElementById('bubbles-view');
-            const cardsView = document.getElementById('cards-view');
-            const allCards = document.querySelectorAll('.service-card');
-
-            // Ховаємо всі картки
-            allCards.forEach(card => {
-                card.classList.add('hidden');
-                card.classList.remove('card-enter');
+        // ЛОГІКА ДЛЯ ВІДКРИТТЯ СТОРІНОК ПОСЛУГ (SPA Routing)
+        function openServicePage(serviceId) {
+            const viewHome = document.getElementById('view-home');
+            const viewService = document.getElementById('view-service');
+            
+            if(viewHome) viewHome.classList.add('hidden');
+            if(viewService) viewService.classList.remove('hidden');
+            
+            document.querySelectorAll('.service-page-content').forEach(el => {
+                el.classList.add('hidden');
+                el.classList.remove('fade-in');
             });
-
-            // Ховаємо бульбашки плавно
-            bubblesView.style.opacity = '0';
-            setTimeout(() => {
-                bubblesView.style.display = 'none';
-                bubblesView.style.opacity = '1'; // Повертаємо для наступного разу
-                bubblesView.classList.remove('fade-in');
-                
-                // Показуємо потрібну картку
-                const targetCard = document.getElementById(cardId);
-                cardsView.classList.remove('hidden');
-                targetCard.classList.remove('hidden');
-                
-                // Запускаємо анімацію
+            
+            const activePage = document.getElementById('sp-' + serviceId);
+            if(activePage) {
+                activePage.classList.remove('hidden');
                 setTimeout(() => {
-                    targetCard.classList.add('card-enter');
+                    activePage.classList.add('fade-in');
                 }, 10);
-            }, 300);
+            }
+            
+            window.scrollTo({top: 0, behavior: 'smooth'});
         }
 
-        function showBubbles() {
-            const bubblesView = document.getElementById('bubbles-view');
-            const cardsView = document.getElementById('cards-view');
+        function goHome() {
+            const viewHome = document.getElementById('view-home');
+            const viewService = document.getElementById('view-service');
             
-            // Ховаємо картки, показуємо бульбашки з анімацією
-            cardsView.classList.add('hidden');
-            bubblesView.classList.add('fade-in');
-            
-            // Повертаємо display залежно від ширини екрану
-            if (window.innerWidth <= 768) {
-                bubblesView.style.display = 'grid';
-            } else {
-                bubblesView.style.display = 'flex';
-            }
-            
-            // Очищуємо клас анімації після завершення, щоб працювало наступного разу
-            setTimeout(() => {
-                bubblesView.classList.remove('fade-in');
-            }, 400);
+            if(viewService) viewService.classList.add('hidden');
+            if(viewHome) viewHome.classList.remove('hidden');
+            window.scrollTo({top: 0, behavior: 'smooth'});
         }
-        
-        // Обробка зміни розміру вікна для правильного display бульбашок
-        window.addEventListener('resize', () => {
-            const bubblesView = document.getElementById('bubbles-view');
-            const cardsView = document.getElementById('cards-view');
-            if (cardsView.classList.contains('hidden')) {
-                if (window.innerWidth <= 768) {
-                    bubblesView.style.display = 'grid';
-                } else {
-                    bubblesView.style.display = 'flex';
-                }
-            }
-        });
+
+        // Для навігації з меню до секцій на головній
+        function goHomeAndScroll(targetId) {
+            const viewHome = document.getElementById('view-home');
+            const viewService = document.getElementById('view-service');
+            const target = document.getElementById(targetId);
+            
+            if(viewService) viewService.classList.add('hidden');
+            if(viewHome) viewHome.classList.remove('hidden');
+            setTimeout(() => {
+                if(target) target.scrollIntoView({behavior: 'smooth'});
+            }, 100);
+        }
     </script>
 </body>
 </html>
