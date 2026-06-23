@@ -178,10 +178,31 @@
   const defaultNote = note ? note.textContent : '';
   const googleFormUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSdqFq2_rfZLl2pJPM9XFWuwRsSzUvfTx1sWh5u794IynMQmZg/formResponse';
 
+  // ---- Telegram lead notification (sends to the "Soda — Заявки" group) ----
+  const TG_TOKEN = '8719562751:AAE76LNyKp5Y7FhEBulzGgZmtuThDCR031o';
+  const TG_CHAT = '-5445612847';
+  const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  function notifyTelegram(name, phone, service) {
+    const when = new Date().toLocaleString('uk-UA', { timeZone: 'Europe/Kiev', day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit' });
+    const text =
+      '🔔 <b>Нова заявка з сайту</b>\n\n' +
+      '👤 <b>Ім\u2019я:</b> ' + esc(name || '—') + '\n' +
+      '📞 <b>Телефон:</b> ' + esc(phone || '—') + '\n' +
+      '🧽 <b>Послуга:</b> ' + esc(service || '—') + '\n' +
+      '🕒 <b>Час:</b> ' + esc(when) + '\n' +
+      '🌐 <b>Сторінка:</b> ' + esc(location.pathname || '/');
+    return fetch('https://api.telegram.org/bot' + TG_TOKEN + '/sendMessage', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams({ chat_id: TG_CHAT, parse_mode: 'HTML', text: text })
+    });
+  }
+
   form.addEventListener('submit', function (e) {
     e.preventDefault();
     const nameValue = (document.getElementById('form-name') || {}).value || '';
     const phoneValue = (document.getElementById('form-phone') || {}).value || '';
+    const serviceValue = (document.getElementById('form-service') || {}).value || '';
 
     const formData = new URLSearchParams();
     formData.append('entry.1658913786', nameValue);
@@ -189,6 +210,9 @@
 
     const btn = form.querySelector('button[type="submit"]');
     if (btn) { btn.disabled = true; btn.textContent = 'Надсилаємо…'; }
+
+    // Fire the Telegram notification (independent of Google Forms — never blocks the lead)
+    notifyTelegram(nameValue, phoneValue, serviceValue).catch(function () {});
 
     fetch(googleFormUrl, {
       method: 'POST',
