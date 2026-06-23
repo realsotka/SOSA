@@ -82,9 +82,22 @@
   };
   const goTo = (i) => { idx = (i % total + total) % total; render(); };
 
-  prev && prev.addEventListener('click', () => goTo(idx - 1));
-  next && next.addEventListener('click', () => goTo(idx + 1));
-  dots.forEach((d) => d.addEventListener('click', () => goTo(parseInt(d.dataset.go, 10) || 0)));
+  // ----- Auto-rotate until the user takes manual control -----
+  const AUTO_DELAY = 4500;
+  let autoTimer = null;
+  let userTookControl = false;
+  const autoStep = () => { idx = (idx + 1) % total; render(); };
+  const startAuto = () => {
+    if (userTookControl || autoTimer || total <= 1) return;
+    autoTimer = setInterval(autoStep, AUTO_DELAY);
+  };
+  const pauseAuto = () => { if (autoTimer) { clearInterval(autoTimer); autoTimer = null; } };
+  // Permanently stop once the visitor interacts with the controls
+  const stopAuto = () => { userTookControl = true; pauseAuto(); };
+
+  prev && prev.addEventListener('click', () => { stopAuto(); goTo(idx - 1); });
+  next && next.addEventListener('click', () => { stopAuto(); goTo(idx + 1); });
+  dots.forEach((d) => d.addEventListener('click', () => { stopAuto(); goTo(parseInt(d.dataset.go, 10) || 0); }));
 
   // Keyboard arrows when carousel is in view focus
   document.addEventListener('keydown', (e) => {
@@ -93,8 +106,8 @@
     const r = car.getBoundingClientRect();
     const inView = r.top < window.innerHeight * 0.8 && r.bottom > window.innerHeight * 0.2;
     if (!inView) return;
-    if (e.key === 'ArrowLeft') goTo(idx - 1);
-    if (e.key === 'ArrowRight') goTo(idx + 1);
+    if (e.key === 'ArrowLeft') { stopAuto(); goTo(idx - 1); }
+    if (e.key === 'ArrowRight') { stopAuto(); goTo(idx + 1); }
   });
 
   // Map service slug -> slide index
@@ -103,6 +116,7 @@
   // Mega-menu links jump carousel to the matching slide
   document.querySelectorAll('.mega__link[data-svc-go]').forEach((btn) => {
     btn.addEventListener('click', () => {
+      stopAuto();
       const target = indexOfService(btn.dataset.svcGo);
       if (target >= 0) goTo(target);
       const sec = document.getElementById('services');
@@ -120,12 +134,23 @@
     vp.addEventListener('touchend', (e) => {
       if (startX === null) return;
       const dx = e.changedTouches[0].clientX - startX;
-      if (Math.abs(dx) > 45) goTo(idx + (dx < 0 ? 1 : -1));
+      if (Math.abs(dx) > 45) { stopAuto(); goTo(idx + (dx < 0 ? 1 : -1)); }
       startX = null;
     }, { passive: true });
   }
 
+  // Pause auto-rotate on hover, resume on leave (only while user hasn't taken control)
+  if (vp) {
+    vp.addEventListener('mouseenter', pauseAuto);
+    vp.addEventListener('mouseleave', startAuto);
+  }
+  // Pause when the tab is hidden to save resources
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) pauseAuto(); else startAuto();
+  });
+
   render();
+  startAuto();
 })();
 
 // ===== Mega-menu tap-to-open on touch devices =====
