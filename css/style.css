@@ -326,22 +326,14 @@ p{text-wrap:pretty}
   .reviews-grid{grid-template-columns:1fr}
   .trust-strip__inner{grid-template-columns:repeat(2,1fr);gap:var(--space-6)}
 }
-@media (max-width:400px){
-  .logo{font-size:1.05rem}
-  .header__actions{gap:4px}
-  .header__phone-mobile,.burger,.theme-toggle{width:32px;height:32px}
-}
-@media (max-width:340px){
-  .logo{font-size:.92rem}
-  .header__phone-mobile,.burger,.theme-toggle{width:28px;height:28px}
-}
 @media (max-width:720px){
   .burger{display:flex}
-  .header__cta,.header__phone,.header__instagram{display:none}
+  .header__cta,.header__phone{display:none}
   .header__phone-mobile{display:inline-flex}
-  .header__actions{gap:var(--space-2)}
-  .header__phone-mobile,.burger{width:38px;height:38px}
-  .theme-toggle{width:36px;height:36px}
+  .header__instagram{display:flex;width:36px;height:36px}
+  .header__actions{gap:6px}
+  .header__phone-mobile,.burger{width:36px;height:36px}
+  .theme-toggle{width:34px;height:34px}
   .nav{display:none}
   .service-slide__body{padding:var(--space-8)}
   .service-slide__media{min-height:240px}
@@ -355,6 +347,18 @@ p{text-wrap:pretty}
   .hero__stats{gap:var(--space-6)}
   .footer__grid{grid-template-columns:1fr 1fr;gap:var(--space-8)}
   .footer__brand{grid-column:1 / -1}
+}
+@media (max-width:400px){
+  .logo{font-size:1.05rem}
+  .header__actions{gap:4px}
+  .header__phone-mobile,.header__instagram,.burger,.theme-toggle{width:30px;height:30px}
+  .header__instagram svg{width:16px;height:16px}
+}
+@media (max-width:340px){
+  .logo{font-size:.88rem}
+  .header__actions{gap:3px}
+  .header__phone-mobile,.header__instagram,.burger,.theme-toggle{width:26px;height:26px}
+  .header__phone-mobile svg,.header__instagram svg,.theme-toggle svg{width:16px;height:16px}
 }
 
 /* ============ DISCOUNT PROMO POPUP ============ */
