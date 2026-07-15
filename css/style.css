@@ -129,6 +129,9 @@ p{text-wrap:pretty}
 .theme-toggle:hover{color:var(--color-primary);border-color:var(--color-primary)}
 .header__phone-mobile{display:none;align-items:center;justify-content:center;width:42px;height:42px;border-radius:var(--radius-sm);background:var(--color-primary);color:#fff;flex-shrink:0}
 .header__phone-mobile svg{color:#fff}
+.header__instagram{display:flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:var(--radius-full);color:var(--color-text-muted);border:1px solid var(--color-border);flex-shrink:0;transition:var(--transition)}
+.header__instagram:hover{color:#fff;border-color:transparent;background:linear-gradient(45deg,#f9ce34,#ee2a7b,#6228d7)}
+.mobile-nav__instagram{color:var(--color-primary)!important;font-weight:600!important}
 .burger{display:none;flex-direction:column;gap:5px;width:42px;height:42px;align-items:center;justify-content:center;border-radius:var(--radius-sm)}
 .burger span{width:22px;height:2px;background:var(--color-text);border-radius:2px;transition:var(--transition)}
 .burger[aria-expanded=true] span:nth-child(1){transform:translateY(7px) rotate(45deg)}
@@ -323,10 +326,22 @@ p{text-wrap:pretty}
   .reviews-grid{grid-template-columns:1fr}
   .trust-strip__inner{grid-template-columns:repeat(2,1fr);gap:var(--space-6)}
 }
+@media (max-width:400px){
+  .logo{font-size:1.05rem}
+  .header__actions{gap:4px}
+  .header__phone-mobile,.burger,.theme-toggle{width:32px;height:32px}
+}
+@media (max-width:340px){
+  .logo{font-size:.92rem}
+  .header__phone-mobile,.burger,.theme-toggle{width:28px;height:28px}
+}
 @media (max-width:720px){
   .burger{display:flex}
-  .header__cta,.header__phone{display:none}
+  .header__cta,.header__phone,.header__instagram{display:none}
   .header__phone-mobile{display:inline-flex}
+  .header__actions{gap:var(--space-2)}
+  .header__phone-mobile,.burger{width:38px;height:38px}
+  .theme-toggle{width:36px;height:36px}
   .nav{display:none}
   .service-slide__body{padding:var(--space-8)}
   .service-slide__media{min-height:240px}
